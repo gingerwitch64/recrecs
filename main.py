@@ -29,28 +29,30 @@ def scour():
 
 ### OBJECTS ###
 window = tk.Tk()
-#intxtfrm = tk.Frame(master=window)
 input = tk.Text(master=window)
-#inscr = tk.Scrollbar(master=input, command=input.yview)
-mnufrm = tk.Frame(master=window)
-output = tk.Text(master=mnufrm, height=1)
-btn = tk.Button(master=mnufrm, text="Go", command=scour)
-outscr = tk.Scrollbar(master=mnufrm, command=output.yview)
+inscr = tk.Scrollbar(master=window, command=input.yview)
+output = tk.Text(master=window, height=1)
+btn = tk.Button(master=window, text="Go", command=scour)
+outscr = tk.Scrollbar(master=window, command=output.yview)
 
+
+### WINDOW CONFIGURATION ###
+window.title("recrecs")
+window.rowconfigure([0,1], minsize=10, weight=1)
+window.columnconfigure([0,1,2], minsize=10, weight=0)
+window.resizable(width=False, height=True)
 
 ### PACKING ###
-#intxtfrm.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+input.grid(row=0, column=1, sticky="nesw")
+inscr.grid(row=0, column=2, sticky="nsw")
 
-input.pack(fill=tk.BOTH, expand=True)
-#inscr.pack(fill=tk.Y, side=tk.RIGHT, expand=True)
-#input['yscrollcommand'] = inscr.set
+btn.grid(row=1, column=0, padx=5, pady=5)
+output.grid(row=1, column=1, sticky="nesw")
+outscr.grid(row=1, column=2, sticky="nsw")
 
-mnufrm.pack(fill=tk.BOTH, side=tk.BOTTOM, expand=True)
 
-btn.pack(side=tk.LEFT, expand=False)
+input['yscrollcommand'] = inscr.set
 
-output.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
-outscr.pack(fill=tk.Y, side=tk.RIGHT, expand=True)
 output.insert("1.0", "Output will appear here.")
 output['yscrollcommand'] = outscr.set
 
