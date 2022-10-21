@@ -1,8 +1,17 @@
 import tkinter as tk
 
-kwfile = open("keywords.txt", "r")
-keywords = kwfile.read().split(",")
-kwfile.close()
+try:
+    kwfile = open("keywords.txt", "r")
+    keywords = kwfile.read().split(",")
+    kwfile.close()
+except:
+    cferr = True
+    kwfile = open("keywords.txt", "x")
+    kwfile.close()
+    kwfile = open("keywords.txt", "r")
+    keywords = kwfile.read().split(",")
+    kwfile.close()
+
 punct = [".","?","!","\n"]
 
 def scour():
@@ -50,10 +59,12 @@ btn.grid(row=1, column=0, padx=5, pady=5)
 output.grid(row=1, column=1, sticky="nesw")
 outscr.grid(row=1, column=2, sticky="nsw")
 
+if cferr:
+    output.insert("1.0", "keywords.txt not found, so it was auto-created.")
+else:
+    output.insert("1.0", "Output will appear here.")
 
 input['yscrollcommand'] = inscr.set
-
-output.insert("1.0", "Output will appear here.")
 output['yscrollcommand'] = outscr.set
 
 ### WINDOW LOOP ###
