@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# recrecs packaging
+packaging/recrecs/
+packaging/build/
+
 # Distribution / packaging
 .Python
 build/
