@@ -1,5 +1,6 @@
 import tkinter as tk
 
+cferr = False
 try:
     kwfile = open("keywords.txt", "r")
     keywords = kwfile.read().split(",")
