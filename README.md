@@ -20,4 +20,5 @@ Sure! If you want to add some code or reccomend an improvement, feel free to ope
 
 ### TODO/Planned features list
 
+- Word highlighting
 - Paragraph counting
