@@ -1,1 +1,1 @@
-thank,student,good
+gpa,grades,sports,clubs,honors,hn,ap,awards
