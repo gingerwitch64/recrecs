@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# user preference files
+keywords.txt
+
 # recrecs packaging
 packaging/recrecs/
 packaging/build/
