@@ -3,16 +3,13 @@ import tkinter as tk
 
 cferr = False
 try:
-    kwfile = open("keywords.txt", "r")
-    keywords = kwfile.read().split(",")
-    kwfile.close()
+    with open("keywords.txt", "r") as kwfile:
+        keywords = kwfile.read().split(",")
 except:
     cferr = True
-    kwfile = open("keywords.txt", "x")
-    kwfile.close()
-    kwfile = open("keywords.txt", "r")
-    keywords = kwfile.read().split(",")
-    kwfile.close()
+    with open("keywords.txt", "w+") as kwfile:
+        kwfile.write("gpa,grades,sports,clubs,honors,hn,ap,awards")
+        keywords = kwfile.read().split(",")
 
 punct = [".","?","!","\n"]
 
