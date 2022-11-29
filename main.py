@@ -22,10 +22,10 @@ def scour():
     sentword = 1
     words = text.split()
     for word in words:
-        if any(x in word for x in punct):
-            sentword = 0
         if any(x in word.lower() for x in keywords):
             out.append(f"Keyword found in '{word}' as word number {sentword} in sentence {sentence}.\n")
+        if any(x in word for x in punct):
+            sentword = 0
         if any(x in word for x in punct):
             sentence += 1
         sentword += 1
