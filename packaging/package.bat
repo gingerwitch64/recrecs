@@ -10,7 +10,7 @@ copy .\dist\recrecs.exe .. || goto :error
 cd ..\.. || goto :error
 goto :success
 
-Rem Credit to https://stackoverflow.com/a/8965092
+Rem Credit to https://stackoverflow.com/a/8965092 for error handling method
 :error
 echo Failed with error #%errorlevel%.
 exit /b %errorlevel%
