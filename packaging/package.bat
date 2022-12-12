@@ -1,5 +1,7 @@
 echo "Make sure that both python, pip and pip's local script install location are added to PATH."
 echo "pip's local script location is usually C:\Users\YOURUSERNAME\AppData\Roaming\Python\PythonVERSION\Scripts"
+Rem Check if pip is installed, and install it if not
+pip --version || python -m ensurepip --default-pip
 pip install pyinstaller || goto :error
 mkdir build || goto :error
 mkdir build\subbuild\ || goto :error
